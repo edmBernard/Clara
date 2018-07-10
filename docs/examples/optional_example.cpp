@@ -1,9 +1,10 @@
+#include <optional>
 #include "clara.hpp"
 #include <iostream>
 #include <string>
 
 // usage:
-//   clara-options_example  options
+//   clara-optional_example  options
 
 // where options are:
 //   -?, -h, --help               display usage information
@@ -13,7 +14,6 @@
 //   --without-default <value>    options without default value
 //   -r, --repeated <value>       repeated arguments
 
-
 // for convenience
 using namespace clara;
 
@@ -21,7 +21,7 @@ struct Clo {
   bool verbose;
   bool quiet;
   std::string with_default = "MyDefaultValue";
-  std::string without_default;
+  std::optional<std::string> without_default;
   std::vector<std::string> repeated;
 };
 
@@ -55,12 +55,17 @@ int main(int argc, const char *argv[]) {
   std::cout << "   verbose : " << options.verbose << std::endl;
   std::cout << "   quiet   : " << options.quiet << std::endl;
   std::cout << "   with_default  : " << options.with_default << std::endl;
-  std::cout << "   without_default  : " << options.without_default << std::endl;
-  std::cout << "   repeated   : ";
-  for (auto &&i : options.repeated) {
-    std::cout << i << "  ";
+  if (options.without_default.has_value()) {
+    std::cout << "   without_default  : " << options.without_default.value() << std::endl;
   }
-  std::cout << std::endl;
+  if (!options.repeated.empty())
+  {
+    std::cout << "   repeated   : ";
+    for (auto &&i : options.repeated) {
+        std::cout << i << "  ";
+    }
+    std::cout << std::endl;
+  }
   std::cout << "===================================================" << std::endl;
 
   return 1;

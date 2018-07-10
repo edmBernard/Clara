@@ -7,7 +7,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 #**************************************************************************************************
 # General cMake settings
 #**************************************************************************************************
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.10)
 
 #**************************************************************************************************
 # Find Package **************************************************************************************************
@@ -43,3 +43,4 @@ make_exec(conditions_example)
 make_exec(choices_example)
 make_exec(list_example)
 make_exec(positional_example)
+make_exec(optional_example)
