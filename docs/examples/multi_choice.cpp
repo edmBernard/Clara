@@ -56,9 +56,8 @@ int main(int argc, char **argv) {
   std::cout << "width :" << options.width << std::endl;
   std::cout << "name :" << options.name << std::endl;
   std::cout << "doIt :" << options.doIt << std::endl;
-  for (auto&& i : options.command) {
+  for (auto &&i : options.command) {
     std::cout << "command :" << i << std::endl;
   }
   std::cout << "showHelp :" << showHelp << std::endl;
-
 }

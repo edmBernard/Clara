@@ -1,7 +1,7 @@
 #include "clara.hpp"
+#include <experimental/filesystem>
 #include <iostream>
 #include <regex>
-#include <experimental/filesystem>
 
 using namespace clara;
 
@@ -24,7 +24,6 @@ int main(int argc, char *argv[]) {
     std::string arg(argv[i]);
     std::cout << "arg :" << arg << std::endl;
   }
-
 
   // clang-format off
   auto subcli = Help(showHelp)
@@ -59,7 +58,7 @@ int main(int argc, char *argv[]) {
             | Opt(config.doIt)["-d"]["--doit"]("Do the thing")
             | Arg(config.command, "command")("which command to run");
   // clang-format on
-  auto result = cli.parse(Args(argc-1, argv+1));
+  auto result = cli.parse(Args(argc - 1, argv + 1));
   if (!result) {
     std::cerr << "Error in command line: " << result.errorMessage() << std::endl;
     exit(1);
@@ -73,7 +72,7 @@ int main(int argc, char *argv[]) {
 
   std::cout << "name :" << config.name << std::endl;
   std::cout << "doIt :" << config.doIt << std::endl;
-  for (auto&& i : config.command) {
+  for (auto &&i : config.command) {
     std::cout << "command :" << i << std::endl;
   }
   std::cout << "showHelp :" << showHelp << std::endl;

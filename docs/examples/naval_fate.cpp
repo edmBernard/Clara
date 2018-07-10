@@ -1,6 +1,6 @@
 #include "clara.hpp"
-#include <string>
 #include <iostream>
+#include <string>
 
 struct Options {
   int width = 0;
