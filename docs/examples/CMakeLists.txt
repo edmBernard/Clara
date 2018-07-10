@@ -37,9 +37,10 @@ macro(make_exec arg)
     target_link_libraries(clara-${arg})
 endmacro()
 
+make_exec(arguments_example)
+
 make_exec(naval_fate)
 make_exec(multi_choice)
 make_exec(subcommand)
-make_exec(arguments_list)
 make_exec(positional_arguments)
 make_exec(optional)
