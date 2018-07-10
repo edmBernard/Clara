@@ -9,3 +9,5 @@ cd build
 cmake ..
 make
 ```
+
+*Warning*: optional_example need std::optional support it come with gcc-7+
