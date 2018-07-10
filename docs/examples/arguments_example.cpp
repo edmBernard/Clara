@@ -9,7 +9,6 @@
 //   -?, -h, --help       display usage information
 //   -v, --verbose        verbose mode
 //   -q, --quiet          quiet mode
-//   -r, --make-report    make report
 
 // for convenience
 using namespace clara;
@@ -17,7 +16,6 @@ using namespace clara;
 struct Clo {
   bool verbose;
   bool quiet;
-  bool report;
   std::vector<std::string> files;
 };
 
@@ -35,9 +33,6 @@ int main(int argc, const char *argv[]) {
         | Opt(options.quiet)
             ["-q"]["--quiet"]
             ("quiet mode")
-        | Opt(options.report)
-            ["-r"]["--make-report"]
-            ("make report")
         | Arg(options.files, "files")
             ("optional input file");
   // clang-format on
@@ -56,7 +51,6 @@ int main(int argc, const char *argv[]) {
   std::cout << "===================================================" << std::endl;
   std::cout << "   verbose : " << options.verbose << std::endl;
   std::cout << "   quiet   : " << options.quiet << std::endl;
-  std::cout << "   report  : " << options.report << std::endl;
   std::cout << "   files   : ";
   for (auto &&i : options.files) {
     std::cout << i << "  ";
