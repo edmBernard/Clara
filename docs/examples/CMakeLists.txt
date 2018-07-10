@@ -38,6 +38,7 @@ macro(make_exec arg)
 endmacro()
 
 make_exec(arguments_example)
+make_exec(options_example)
 
 make_exec(naval_fate)
 make_exec(multi_choice)
