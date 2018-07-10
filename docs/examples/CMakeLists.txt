@@ -39,6 +39,7 @@ endmacro()
 
 make_exec(arguments_example)
 make_exec(options_example)
+make_exec(conditions_example)
 
 make_exec(naval_fate)
 make_exec(multi_choice)
