@@ -34,7 +34,7 @@ int main(int argc, const char *argv[]) {
         | Opt([&](double i) {
             // Tips: to enter negative number as argument use the following line: ./clara-conditions_example -p=-2
             if (i < 0)
-                return ParserResult::runtimeError("positive number must be between positive");
+                return ParserResult::runtimeError("positive number must be positive");
             else {
                 options.positive_number = i;
                 return ParserResult::ok(ParseResultType::Matched);
